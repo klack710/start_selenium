@@ -1,0 +1,15 @@
+version: '2'
+services:
+  php:
+    build:
+      context: ./php
+    volumes:
+      - ./app:/var/www
+
+  selenium-chrome:
+    image: selenium/standalone-chrome-debug:3.0.1-germanium
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "4444:4444"
+      - "5900:5900"
